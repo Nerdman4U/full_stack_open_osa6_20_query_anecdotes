@@ -36,7 +36,8 @@ const App = () => {
     return <span>Error: {result.error.message}</span>
   }
   else {
-    anecdotes = result.data
+    console.log('app() result', result.data)
+    anecdotes = result.data || []
   }
 
   return (

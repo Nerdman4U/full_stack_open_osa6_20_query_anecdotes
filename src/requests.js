@@ -7,7 +7,11 @@ export const create = (anecdote) => {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(anecdote)
-  }).then(res => res.json())        
+  }).then(res => {
+    console.log('res: ', res)
+    if (!res.ok) throw new Error('Anecdote too short, min 5 chars')
+    return res.json()
+  })
 }
 
 export const update = (anecdote) => {
